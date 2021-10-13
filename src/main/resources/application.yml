@@ -1,0 +1,13 @@
+server:
+  port: ${PORT:8093}
+  servlet:
+    context-path: /api/v1
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_CATALOG_NAME}
+    username: ${DB_USER:admin}
+    password: ${DB_PASSWORD:admin}
+  jpa:
+    hibernate:
+      ddl-auto: update
+      generate-ddl: true
