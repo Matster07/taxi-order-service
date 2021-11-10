@@ -3,9 +3,9 @@ package com.matster.taxi.order.system.orderservice.model;
 import lombok.Data;
 
 @Data
-public class CreateOrderResponse {
+public class OrderResponse {
 
-    private Long id;
-    private String destination;
+    private Integer orderId;
     private String start;
+    private String destination;
 }

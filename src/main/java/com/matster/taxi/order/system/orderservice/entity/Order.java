@@ -1,6 +1,6 @@
 package com.matster.taxi.order.system.orderservice.entity;
 
-import com.matster.taxi.order.system.orderservice.model.enums.OrderStatus;
+import com.matster.taxi.order.system.orderservice.enums.OrderStatus;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,13 +13,13 @@ import javax.persistence.*;
 public class Order {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "order_id")
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer id;
 
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
-    private OrderStatus orderStatus = OrderStatus.UNASSIGNED;
+    private OrderStatus orderStatus = OrderStatus.CREATED;
 
     @Column(name = "customer_id")
     private Long customerId;

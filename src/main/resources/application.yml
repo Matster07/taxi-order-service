@@ -1,13 +1,17 @@
 server:
   port: ${PORT:8093}
   servlet:
-    context-path: /api/v1
+    context-path: /api/order/v1
 spring:
   datasource:
-    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_CATALOG_NAME}
-    username: ${DB_USER:admin}
-    password: ${DB_PASSWORD:admin}
+    url: ${DB_URL:jdbc:postgresql://localhost:30829/postgresdb}
+    driverClassName: org.postgresql.Driver
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:root}
   jpa:
-    hibernate:
-      ddl-auto: update
-      generate-ddl: true
+    properties:
+      hibernate:
+        ddl-auto: update
+        generate-ddl: true
+  liquibase:
+    change-log: classpath:db.changelog/changelog-main.xml
